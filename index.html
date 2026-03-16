@@ -25,7 +25,7 @@
       padding: 10px;
       font-size: 16px;
     }
-
+   
     button {
       margin-top: 15px;
       padding: 10px 20px;
@@ -52,7 +52,7 @@
 
     <h3>Substitution Cipher</h3>
     <p id="sub"></p>
-
+    <h3>Encryption Demo</h3>
     <h3>Transposition Cipher</h3>
     <p id="trans"></p>
   </div>
@@ -75,7 +75,7 @@
       }
 
       let trans = msg.split("").reverse().join("");
-
+      
       document.getElementById("sub").innerText = sub;
       document.getElementById("trans").innerText = trans;
     }
