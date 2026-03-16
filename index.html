@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cipher Techniques</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 80px;
+      background: #f2f2f2;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 420px;
+      margin: auto;
+      box-shadow: 0 0 10px gray;
+    }
+
+    textarea {
+      width: 90%;
+      height: 90px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    p {
+      background: #f8f8f8;
+      padding: 10px;
+      border-radius: 8px;
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Cipher Techniques</h2>
+
+    <textarea id="message" placeholder="Enter message"></textarea><br>
+
+    <button onclick="encrypt()">Encrypt</button>
+
+    <h3>Substitution Cipher</h3>
+    <p id="sub"></p>
+
+    <h3>Transposition Cipher</h3>
+    <p id="trans"></p>
+  </div>
+
+  <script>
+    function encrypt() {
+      let msg = document.getElementById("message").value;
+      let sub = "";
+
+      for (let i = 0; i < msg.length; i++) {
+        let ch = msg[i];
+
+        if (ch >= 'A' && ch <= 'Z') {
+          sub += String.fromCharCode((ch.charCodeAt(0) - 65 + 3) % 26 + 65);
+        } else if (ch >= 'a' && ch <= 'z') {
+          sub += String.fromCharCode((ch.charCodeAt(0) - 97 + 3) % 26 + 97);
+        } else {
+          sub += ch;
+        }
+      }
+
+      let trans = msg.split("").reverse().join("");
+
+      document.getElementById("sub").innerText = sub;
+      document.getElementById("trans").innerText = trans;
+    }
+  </script>
+
+</body>
+</html>
